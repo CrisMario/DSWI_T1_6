@@ -1,0 +1,25 @@
+@model DSWI_T1_6.Dtos.RegisterProductoDto
+
+<div class="container mt-5">
+    <h1 class="text-center">Editar producto</h1>
+
+    <form asp-action="Edit" method="post" class="mt-4">
+        <input asp-for="ProductoId" type="hidden" />
+        <div class="mb-3">
+            <label asp-for="Nombre" class="form-label">Nombre</label>
+            <input asp-for="Nombre" class="form-control" />
+            <span asp-validation-for="Nombre" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Categoria" class="form-label">Categoría</label>
+            <input asp-for="Categoria" class="form-control" />
+            <span asp-validation-for="Categoria" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a asp-action="Index" class="btn btn-secondary">Volver</a>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

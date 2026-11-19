@@ -1,0 +1,42 @@
+@model DSWI_T1_6.ViewModels.EnergiaViewModel
+
+<div class="container mt-5">
+    <h1 class="text-center">Consumo de Energía</h1>
+
+    <form asp-action="Energia" method="post" class="mt-4">
+        <div class="mb-3">
+            <label asp-for="Kwh" class="form-label">kWh consumidos</label>
+            <input asp-for="Kwh" class="form-control" />
+            <span asp-validation-for="Kwh" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Calcular</button>
+    </form>
+
+    @if (Model.Total > 0)
+    {
+        <table class="table table-bordered mt-4">
+            <tbody>
+                <tr>
+                    <td>kWh consumidos</td>
+                    <td>@Model.Kwh.ToString("N2")</td>
+                </tr>
+                <tr>
+                    <td>Subtotal</td>
+                    <td>$ @Model.Subtotal.ToString("N2")</td>
+                </tr>
+                <tr>
+                    <td>Impuesto</td>
+                    <td>$ @Model.Impuesto.ToString("N2")</td>
+                </tr>
+                <tr>
+                    <td><b>Total a pagar</b></td>
+                    <td><b>$ @Model.Total.ToString("N2")</b></td>
+                </tr>
+            </tbody>
+        </table>
+    }
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

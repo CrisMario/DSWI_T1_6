@@ -1,0 +1,41 @@
+@model DSWI_T1_6.Dtos.RegisterInventarioDto
+
+<div class="container mt-5">
+    <h1 class="text-center">Registrar inventario</h1>
+
+    <form asp-action="Create" method="post" class="mt-4">
+        <div class="mb-3">
+            <label asp-for="FechaIngreso" class="form-label">Fecha de ingreso</label>
+            <input asp-for="FechaIngreso" class="form-control" />
+            <span asp-validation-for="FechaIngreso" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Cantidad" class="form-label">Cantidad</label>
+            <input asp-for="Cantidad" class="form-control" />
+            <span asp-validation-for="Cantidad" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Ubicacion" class="form-label">Ubicación</label>
+            <input asp-for="Ubicacion" class="form-control" />
+            <span asp-validation-for="Ubicacion" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Estado" class="form-label">Estado</label>
+            <input asp-for="Estado" class="form-control" />
+            <span asp-validation-for="Estado" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="ProductoId" class="form-label">Producto</label>
+            <select asp-for="ProductoId" asp-items="ViewBag.Productos" class="form-select">
+                <option value="0">-- Seleccione --</option>
+            </select>
+            <span asp-validation-for="ProductoId" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a asp-action="Index" class="btn btn-secondary">Volver</a>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

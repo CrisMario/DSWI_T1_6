@@ -1,0 +1,41 @@
+@model DSWI_T1_6.ViewModels.MotoViewModel
+
+<div class="container mt-5">
+    <h1 class="text-center">Compra de Moto</h1>
+    <p class="text-center">Precio de la moto: <b>$ @Model.PrecioMoto.ToString("N2")</b></p>
+
+    <form asp-action="Moto" method="post" class="text-center mt-4">
+        <input asp-for="PrecioMoto" type="hidden" />
+        <button type="submit" class="btn btn-primary">Calcular descuentos</button>
+    </form>
+
+    @if (Model.PagoMartes > 0)
+    {
+        <table class="table table-bordered mt-4">
+            <thead>
+                <tr>
+                    <th>Opción de compra</th>
+                    <th>Descuento</th>
+                    <th>Pagará</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Martes</td>
+                    <td>12%</td>
+                    <td>$ @Model.PagoMartes.ToString("N2")</td>
+                </tr>
+                <tr>
+                    <td>Sábado</td>
+                    <td>18%</td>
+                    <td>$ @Model.PagoSabado.ToString("N2")</td>
+                </tr>
+                <tr>
+                    <td>Feriado</td>
+                    <td>25%</td>
+                    <td>$ @Model.PagoFeriado.ToString("N2")</td>
+                </tr>
+            </tbody>
+        </table>
+    }
+</div>
